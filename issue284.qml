@@ -1,29 +1,23 @@
 import QtQuick 2.5
 import QtQuick.Controls 1.3
+import Material 0.1 as Material
 
-ApplicationWindow {
+
+Material.ApplicationWindow {
+    id: app
     visible: true
-    width: 640
-    height: 480
-    title: qsTr("Hello World")
+    width: 400
+    height: 200
+    title: qsTr("Issue #284")
 
-    menuBar: MenuBar {
-        Menu {
-            title: qsTr("File")
-            MenuItem {
-                text: qsTr("&Open")
-                onTriggered: console.log("Open action triggered");
-            }
-            MenuItem {
-                text: qsTr("Exit")
-                onTriggered: Qt.quit();
-            }
-        }
+    theme {
+        primaryColor: Material.Palette.colors["blue"]["500"]
+        primaryDarkColor: Material.Palette.colors["blue"]["700"]
+        accentColor: Material.Palette.colors["red"]["A200"]
+        tabHighlightColor: "white"
     }
 
-    Label {
-        text: qsTr("Hello World")
-        anchors.centerIn: parent
+    initialPage: Material.TabbedPage {
+        title: "Issue #284"
     }
 }
-
